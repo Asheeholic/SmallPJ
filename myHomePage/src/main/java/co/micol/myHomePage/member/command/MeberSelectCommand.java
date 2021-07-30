@@ -1,7 +1,5 @@
 package co.micol.myHomePage.member.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,18 +8,19 @@ import co.micol.myHomePage.member.service.MemberService;
 import co.micol.myHomePage.member.serviceImpl.MemberServiceImpl;
 import co.micol.myHomePage.vo.MemberVO;
 
-public class MemberListCommand implements Command {
+public class MeberSelectCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		//전체 조회가 된다.
+		// TODO 맴버 리스트를 클릭 했을때 한건 조회되게 만들어 놓음
 		MemberService dao = new MemberServiceImpl();
+		MemberVO vo = new MemberVO();
+		vo.setId(request.getParameter("id"));
+		vo = dao.memberSelect(vo);
+		request.setAttribute("member", vo);
 		
-		List<MemberVO> list = dao.memberSelectList();
 		
-		request.setAttribute("memberList", list);
-		
-		return "member/memberList";
+		return "member/memberSelect";
 	}
 
 }

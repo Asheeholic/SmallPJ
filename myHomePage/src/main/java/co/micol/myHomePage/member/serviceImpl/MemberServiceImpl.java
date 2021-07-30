@@ -32,8 +32,10 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 	
+	
 	@Override
 	public List<MemberVO> memberSelectList() {
+		//회원(학생,교수) 전체조회
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		MemberVO vo;
 		String sql = "select * from member";
@@ -64,8 +66,30 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO memberSelect(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 한건 조회 
+		
+		String sql = "select * from member where id =?";
+		
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo.setId(rs.getString("id"));
+				vo.setPassword(rs.getString("password"));
+				vo.setName(rs.getString("name"));
+				vo.setAge(rs.getInt("age"));
+				vo.setDepartment(rs.getString("department")); //학과명
+				vo.setAuthor(rs.getString("author"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		
+		return vo;
 	}
 
 	@Override

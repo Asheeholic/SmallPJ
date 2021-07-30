@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${list[0].id }
+	${memberList[0].id }
 	<div>
 		<table border="1"></table>
 	</div>

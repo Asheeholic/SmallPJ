@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.micol.myHomePage.command.HomeCommand;
 import co.micol.myHomePage.common.Command;
+import co.micol.myHomePage.member.command.MemberListCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -34,6 +35,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		map.put("/home.do", new HomeCommand());
+		map.put("/memberList.do", new MemberListCommand());
 
 	}
 

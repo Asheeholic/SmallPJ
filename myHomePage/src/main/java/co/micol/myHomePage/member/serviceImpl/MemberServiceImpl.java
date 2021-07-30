@@ -23,9 +23,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	private void disconnect() {
 		try {
-			if(!rs.isClosed()) rs.close();
-			if(!psmt.isClosed()) psmt.close();
-			if(!conn.isClosed()) conn.close();
+			if(rs != null) rs.close();
+			if(psmt != null) psmt.close();
+			if(conn != null) conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

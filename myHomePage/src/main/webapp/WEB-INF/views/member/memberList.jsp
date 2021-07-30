@@ -6,9 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script type="text/javascript">
+		function getRecord(n){
+			frm.id.value = n;
+			frm.submit();
+		}
+	</script>
 </head>
 <body>
-	${memberLists[0].id }
 	<div>
 		<h1>학과 명단</h1>
 		<table border="1">
@@ -19,7 +24,8 @@
 				<th width="150">학과명</th>
 			</tr>
 			<c:forEach var="member" items="${memberList }">
-				<tr>
+				<tr onmouseover="this.style.background='yellow'" onmouseout="this.style.background='white'"
+					onclick="getRecord('${member.id}')">
 					<td align="center">${member.id }</td>
 					<td align="center">${member.name }</td>
 					
@@ -31,7 +37,12 @@
 	</div><br/>
 	<div>
 		<button type="button" onclick="location.href='home.do'">홈으로</button>&nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="location.href='memberInsert.do'">회원추가</button>
+		<button type="button" onclick="location.href='memberInsert.do'">회원추가</button> <!-- 관리자 전용 -->
+	</div>
+	<div>
+		<form id="frm" name="frm" action="memberSelect.do" method="post">
+			<input type="hidden" id="id" name="id">
+		</form>
 	</div>
 </body>
 </html>

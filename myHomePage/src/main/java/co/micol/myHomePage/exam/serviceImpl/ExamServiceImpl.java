@@ -33,8 +33,8 @@ public class ExamServiceImpl implements ExamService {
 	public List<ExamVO> examSelectList() {
 		List<ExamVO> list = new ArrayList<>();
 		ExamVO vo;
-		String sql = "select a.id, a.name, b.fid, b.file_path, b.fDate"
-				+ "from member a join exam b"
+		String sql = "select a.id, a.name, b.fid, b.file_path, b.fDate "
+				+ "from member a join exam b "
 				+ "on (a.id = b.id)";
 		conn = dataSource.getConnection();
 		try {
@@ -68,7 +68,7 @@ public class ExamServiceImpl implements ExamService {
 	// 아직 더 건들어야함.
 	@Override
 	public int examInsert(ExamVO vo) {
-		String sql = "insert into exam"
+		String sql = "insert into exam "
 				+ "values(?, ?, ?);";
 		int result = 0;
 		conn = dataSource.getConnection();

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.myHomePage.command.HomeCommand;
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.exam.command.ExamFormCommand;
+import co.micol.myHomePage.exam.command.ExamUploadCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
 
@@ -39,8 +40,9 @@ public class FrontController extends HttpServlet {
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); //회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());
-		map.put("/examForm.do", new ExamFormCommand());
 		
+		map.put("/examForm.do", new ExamFormCommand());
+		map.put("/examUpload.do", new ExamUploadCommand());
 	}
 
 	/**

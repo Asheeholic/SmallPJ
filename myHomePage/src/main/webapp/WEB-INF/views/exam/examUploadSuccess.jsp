@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	${sender }<br>
 	${message}
 </body>
 </html>

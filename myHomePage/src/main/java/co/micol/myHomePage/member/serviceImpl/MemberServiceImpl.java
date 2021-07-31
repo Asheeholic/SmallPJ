@@ -118,8 +118,28 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int memberInsert(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 회원(교수 및 학생) 가입 
+		String sql ="insert into member(id, password, name, age, department, author, state) values(?,?,?,?,?,?,'Y')";
+		int n = 0;
+			conn = dataSource.getConnection();
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, vo.getId());
+				psmt.setString(2, vo.getPassword());
+				psmt.setString(3, vo.getName());
+				psmt.setInt(4, vo.getAge());
+				psmt.setString(5, vo.getDepartment());
+				psmt.setString(6, vo.getAuthor());
+				
+				n = psmt.executeUpdate();
+	
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disconnect();
+			}
+			
+		return n;
 	}
 
 	@Override

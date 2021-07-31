@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.myHomePage.command.HomeCommand;
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.exam.command.ExamFormCommand;
+import co.micol.myHomePage.login.command.LoginCommand;
+import co.micol.myHomePage.login.command.LoginformCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
 
@@ -35,7 +37,8 @@ public class FrontController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-
+		map.put("/loginform.do", new LoginformCommand()); //로그인폼 이동
+		map.put("/login.do", new LoginCommand());
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); //회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());

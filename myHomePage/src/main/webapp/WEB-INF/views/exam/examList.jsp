@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<video width="320" height="240" controls>
-		<source src="D:\cat.mp4" type="video/mp4">
-		<source src="D:\cat.ogg" type="video/ogg">
-		Your browser does not support the video tag.
-	</video>
+	<br>
+    <a href="examDownload.do?fileName=cat.mp4">cat.mp4</a>
 </body>
 </html>

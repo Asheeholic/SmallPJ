@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.midi.VoiceStatus;
+
 import co.micol.myHomePage.dao.DataSource;
 import co.micol.myHomePage.exam.service.ExamService;
 import co.micol.myHomePage.vo.ExamVO;
@@ -61,22 +63,44 @@ public class ExamServiceImpl implements ExamService {
 
 	@Override
 	public ExamVO examSelect(ExamVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select a.id, a.name, b.fid, b.file_path, b.fDate "
+				+ "from member a join exam b "
+				+ "on (a.id = b.id) "
+				+ "where id = ?";
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo = new ExamVO();
+				vo.setId(rs.getString("id"));
+				vo.setName(rs.getString("name"));
+				
+				vo.setfId(rs.getInt("fid"));
+				vo.setFilePath(rs.getString("file_path"));
+				vo.setfDate(rs.getDate("fDate"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return vo;
 	}
 	
 	// 아직 더 건들어야함.
 	@Override
 	public int examInsert(ExamVO vo) {
-		String sql = "insert into exam "
-				+ "values(?, ?, ?);";
+		String sql = "insert into exam(id, file_path, fid) "
+				+ "values(?, ?, 3)";
 		int result = 0;
 		conn = dataSource.getConnection();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getId());
 			psmt.setString(2, vo.getFilePath());
-			psmt.setInt(3, vo.getfId());
 			result = psmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

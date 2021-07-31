@@ -14,6 +14,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import co.micol.myHomePage.common.Command;
+import co.micol.myHomePage.exam.service.ExamService;
+import co.micol.myHomePage.exam.serviceImpl.ExamServiceImpl;
+import co.micol.myHomePage.vo.ExamVO;
 
 public class ExamUploadCommand implements Command {
 	
@@ -37,13 +40,14 @@ public class ExamUploadCommand implements Command {
 			upload.setFileSizeMax(MAX_FILE_SIZE);
 			upload.setSizeMax(MAX_REQUEST_SIZE);
 			String uploadPath = UPLOAD_DIR;
+			String fileName = null;
 			
 			try {
 				List<FileItem> formItems = upload.parseRequest(request);
 				if(formItems != null && formItems.size() > 0) {
 					for(FileItem item : formItems) {
 						if(!item.isFormField()) {
-							String fileName = new File(item.getName()).getName();
+							fileName = new File(item.getName()).getName();
 							
 							String filePath = uploadPath + File.separator + fileName;
 							
@@ -72,17 +76,36 @@ public class ExamUploadCommand implements Command {
 				System.out.println("파라미터값: " + entry.getValue());
 			}
 			
-			System.out.println("꺼내짐 : " + formMap.get("sender"));
-			System.out.println("안꺼내짐 : " + request.getParameter("sender"));
+			System.out.println("꺼내짐 : " + formMap.get("id"));
+			System.out.println("안꺼내짐 : " + request.getParameter("id"));
 			
 			//이것이 text타입 폼을 출력해주는것.
 			request.setAttribute("sender", "보낸사람 : " + formMap.get("sender"));
+			
+			
+			
+			//dao 연결해서 db에 보관하기
+			ExamService dao = new ExamServiceImpl();
+			String id = formMap.get("id");
+			ExamVO vo = new ExamVO();
+			vo.setId(id);
+			vo.setFilePath(fileName);
+			
+			int result = dao.examInsert(vo);
+			String page = "";
+			if(result != 0) {
+				page = "exam/examForm";
+				request.setAttribute("message", "업로드를 성공했습니다!");
+			} else {
+				page = "home/Error.jsp";
+				request.setAttribute("message", "업로드를 실패했거나 비정상적 접근입니다.");
+			}
 			
 		}
 		
 		
 		
-		return "exam/examUploadSuccess";
+		return "exam/examForm";
 	}
 
 }

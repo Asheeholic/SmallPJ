@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.myHomePage.command.HomeCommand;
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.exam.command.ExamFormCommand;
-<<<<<<< HEAD
+
 import co.micol.myHomePage.login.command.LoginCommand;
 import co.micol.myHomePage.login.command.LoginformCommand;
-=======
+
 import co.micol.myHomePage.exam.command.ExamUploadCommand;
->>>>>>> refs/remotes/origin/main
+
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
 

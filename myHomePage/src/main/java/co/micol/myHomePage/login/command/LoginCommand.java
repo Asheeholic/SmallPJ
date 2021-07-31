@@ -2,6 +2,7 @@ package co.micol.myHomePage.login.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.member.service.MemberService;
@@ -12,12 +13,31 @@ public class LoginCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO 로그인 과정 처리하는 장소 
-		
+		// TODO 로그인 과정 처리하는 장소
+
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		
-		return null;
+		HttpSession session = request.getSession();
+		vo.setId(request.getParameter("id"));
+		vo.setPassword(request.getParameter("password"));
+		vo = dao.memberLogin(vo);
+		System.out.println("Login.....");
+
+		String page = "";
+		// 권한
+		if (vo.getName() != null) {
+			session.setAttribute("name", vo.getName());
+			session.setAttribute("author", vo.getAuthor());
+			session.setAttribute("id", vo.getId());
+			page = "home/home";
+			System.out.println("로그인 성공됐니?");
+		} else {
+			String message = "존재하지 않는 아이디 또는 패스워드가 틀립니다.";
+			request.setAttribute("message", message);
+			page = "login/loginform";
+			System.out.println("로그인 실패");
+		}
+		return page;
 	}
 
 }

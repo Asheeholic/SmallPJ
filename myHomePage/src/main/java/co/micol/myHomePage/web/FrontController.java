@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.myHomePage.command.HomeCommand;
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.exam.command.ExamFormCommand;
+import co.micol.myHomePage.exam.command.ExamListCommand;
 import co.micol.myHomePage.exam.command.ExamUploadCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
@@ -43,6 +44,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/examForm.do", new ExamFormCommand());
 		map.put("/examUpload.do", new ExamUploadCommand());
+		map.put("/examList.do", new ExamListCommand());
 	}
 
 	/**

@@ -29,6 +29,7 @@ public class LoginCommand implements Command {
 			session.setAttribute("sessionName", vo.getName());
 			session.setAttribute("sessionAuthor", vo.getAuthor());
 			session.setAttribute("sessionId", vo.getId());
+			session.setAttribute("session", vo);
 			page = "home/home";
 			System.out.println("로그인 성공!!!");
 		} else {

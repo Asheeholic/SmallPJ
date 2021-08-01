@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,12 +39,14 @@
 	          ExamList (prof only)
 	        </a>
 	      </li>
-	      <li>
-	        <a href="memberList.do" class="nav-link text-white">
-	          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-	          MemberList (admin only)
-	        </a>
-	      </li>
+	      <c:if test="${session.author == 'ADMIN'}">
+		      <li>
+		        <a href="memberList.do" class="nav-link text-white">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+		          MemberList (admin only)
+		        </a>
+		      </li>
+	      </c:if>
 	    </ul>
 	    <hr>
 	    <div class="dropdown">

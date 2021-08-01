@@ -15,7 +15,7 @@
 	<a href="examList.do">제출된 시험 보기</a>
 
 	<div>
-		<h1>${name }님 환영합니다.</h1>
+		<h1>${sessionName }님 환영합니다.</h1>
 	</div>
 </body>
 </html>

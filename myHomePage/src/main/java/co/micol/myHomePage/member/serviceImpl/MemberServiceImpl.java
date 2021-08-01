@@ -144,8 +144,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberUpdate(MemberVO vo) {
 		// TODO 회원 수정
+		int n = 0;
+		String sql ="update member set password=? , name = ?  where id =?";
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getPassword());
+			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getId());
+			n = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} disconnect();
 		
-		return 0;
+		return n;
 	}
 
 	@Override

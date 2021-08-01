@@ -26,9 +26,9 @@ public class LoginCommand implements Command {
 		String page = "";
 		// 권한
 		if (vo.getName() != null) {
-			session.setAttribute("name", vo.getName());
-			session.setAttribute("author", vo.getAuthor());
-			session.setAttribute("id", vo.getId());
+			session.setAttribute("sessionName", vo.getName());
+			session.setAttribute("sessionAuthor", vo.getAuthor());
+			session.setAttribute("sessionId", vo.getId());
 			page = "home/home";
 			System.out.println("로그인 성공!!!");
 		} else {

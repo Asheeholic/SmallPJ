@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,14 +17,15 @@ import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.exam.command.ExamDownloadCommand;
 import co.micol.myHomePage.exam.command.ExamFormCommand;
 import co.micol.myHomePage.exam.command.ExamListCommand;
+import co.micol.myHomePage.exam.command.ExamUploadCommand;
 import co.micol.myHomePage.login.command.LoginCommand;
 import co.micol.myHomePage.login.command.LoginformCommand;
 import co.micol.myHomePage.login.command.MemberInsert;
-import co.micol.myHomePage.login.command.SignUpForm;
 import co.micol.myHomePage.login.command.SignUpFormCommand;
-import co.micol.myHomePage.exam.command.ExamUploadCommand;
+import co.micol.myHomePage.member.command.LogoutCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
+import co.micol.myHomePage.member.command.idCheckForm;
 
 /**
  * Servlet implementation class FrontController
@@ -45,9 +47,13 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/loginform.do", new LoginformCommand()); // 로그인폼 이동
 		map.put("/login.do", new LoginCommand());
+		map.put("/logout.do", new LogoutCommand());
 		map.put("/signUpForm.do", new SignUpFormCommand());
 		map.put("/memberInsert.do", new MemberInsert());
+		map.put("/idCheckForm.do", new idCheckForm());
+	
 		
+	
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); // 회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());

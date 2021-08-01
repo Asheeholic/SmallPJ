@@ -6,15 +6,15 @@ import co.micol.myHomePage.vo.MemberVO;
 
 public interface MemberService {
 	
-	List<MemberVO> memberSelectList();
+	List<MemberVO> memberSelectList(); //전체조회 (R)
 	
-	MemberVO memberSelect(MemberVO vo);
+	MemberVO memberSelect(MemberVO vo); //한건 조회(R)
 	
-	MemberVO memberLogin(MemberVO vo);
+	MemberVO memberLogin(MemberVO vo); // 로그인
 	
-	int memberInsert(MemberVO vo);
-	int memberUpdate(MemberVO vo);
-	int memberDelete(MemberVO vo);
+	int memberInsert(MemberVO vo); //회원(학생,교수) 가입
+	int memberUpdate(MemberVO vo); //회원(학생,교수) 수정
+	int memberDelete(MemberVO vo); //회원(학생,교수) 삭제<관리자만>
 	
 	
 }

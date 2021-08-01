@@ -10,21 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-    function checkValue() {
-      var p1 = document.getElementById('password').value;
-      var p2 = document.getElementById('passcheck').value;
-          
-          if( p1 != p2 ) {
-            alert("비밀번호불일치");
-            return false;
-          } else{
-            alert("비밀번호가 일치합니다");
-            return true;
-          }
-   
-    
-    }
-    
+
   </script>
 </head>
 <body>
@@ -39,6 +25,8 @@
 								<th width="150">아이디</th>
 								<td width="350">
 									<input type="text" id="id" name="id" placeholder="아이디 입력" required="required">
+									<input type="button" value="중복확인" onclick="openIdChk()">
+									
 								</td>
 							</tr>
 							<tr>

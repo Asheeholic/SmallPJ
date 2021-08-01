@@ -19,7 +19,7 @@
 	        </ul>
 	
 	        <div class="text-end">
-	          <button type="button" class="btn btn-warning">Log-out</button>
+	          <button type="button" class="btn btn-warning" onclick="location.href='logout.do'">Log-out</button>
 	        </div>
 	      </div>
 	    </div>

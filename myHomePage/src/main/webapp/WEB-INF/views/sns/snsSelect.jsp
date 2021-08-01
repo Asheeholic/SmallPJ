@@ -54,7 +54,7 @@
 	
 	
 	<!-- 댓글 삭제 -->
-	<form id="delComment" name="frm" action="commentDelete.do" method="post">
+	<form id="delComment" name="delComment" action="commentDelete.do" method="post">
 		<input type="hidden" id="cno" name="cno">
 	</form>
 	<script type="text/javascript">

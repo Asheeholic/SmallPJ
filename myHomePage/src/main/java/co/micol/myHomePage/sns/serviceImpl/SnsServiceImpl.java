@@ -1,4 +1,4 @@
-package co.micol.myHomePage.sns.ServiceImpl;
+package co.micol.myHomePage.sns.serviceImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.micol.myHomePage.dao.DataSource;
-import co.micol.myHomePage.sns.Service.SnsService;
+import co.micol.myHomePage.sns.service.SnsService;
 import co.micol.myHomePage.vo.SnsVO;
 
 public class SnsServiceImpl implements SnsService {
@@ -30,7 +30,7 @@ public class SnsServiceImpl implements SnsService {
 	}
 	
 	@Override
-	public List<SnsVO> boardSelectList() {
+	public List<SnsVO> snsSelectList() {
 		// TODO 게시판 리스트 출력
 		String sql = "select * from sns";
 		List<SnsVO> list = new ArrayList<SnsVO>();
@@ -59,7 +59,7 @@ public class SnsServiceImpl implements SnsService {
 	}
 
 	@Override
-	public List<SnsVO> boardSelectAndCommentsList(String sno) {
+	public List<SnsVO> snsSelectAndCommentsList(String sno) {
 		// TODO 게시판 선택후 게시글과 댓글들 출력
 		String sql = "select s.*, c.cno, c.cname, c.csubject, c.cdate "
 				+ "from sns s left outer join comments c "
@@ -99,7 +99,7 @@ public class SnsServiceImpl implements SnsService {
 	}
 
 	@Override
-	public int boardInsert(SnsVO vo) {
+	public int snsInsert(SnsVO vo) {
 		// TODO 게시글 삽입
 		return 0;
 	}
@@ -111,7 +111,7 @@ public class SnsServiceImpl implements SnsService {
 	}
 
 	@Override
-	public int boardUpdate(SnsVO vo) {
+	public int snsUpdate(SnsVO vo) {
 		// TODO 게시글 수정
 		return 0;
 	}
@@ -123,7 +123,7 @@ public class SnsServiceImpl implements SnsService {
 	}
 
 	@Override
-	public int boardDelete(SnsVO vo) {
+	public int snsDelete(SnsVO vo) {
 		// TODO 게시글 삭제
 		return 0;
 	}

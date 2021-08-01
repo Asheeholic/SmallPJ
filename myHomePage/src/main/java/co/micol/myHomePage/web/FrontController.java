@@ -21,6 +21,7 @@ import co.micol.myHomePage.login.command.LoginformCommand;
 import co.micol.myHomePage.exam.command.ExamUploadCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
+import co.micol.myHomePage.sns.command.SnsListCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -50,6 +51,9 @@ public class FrontController extends HttpServlet {
 		map.put("/examUpload.do", new ExamUploadCommand());
 		map.put("/examList.do", new ExamListCommand());
 		map.put("/examDownload.do", new ExamDownloadCommand());
+		
+		map.put("/snsList.do", new SnsListCommand());
+		
 	}
 
 	/**

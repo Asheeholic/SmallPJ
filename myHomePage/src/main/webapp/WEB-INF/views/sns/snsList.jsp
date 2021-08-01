@@ -20,7 +20,7 @@
 		</thead>
 		<tbody>
 			<c:forEach var="sns" items="${snsList }">
-				<tr onclick="getSns('${snsList }')">
+				<tr onclick="getSns('${sns.sNo}')">
 					<td>${sns.sNo}</td>
 					<td>${sns.sTitle}</td>
 					<td>${sns.sWriter}</td>
@@ -30,7 +30,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<form id="frm" name="frm" method="post">
+	<form id="frm" name="frm" action="snsSelect.do" method="post">
 		<input type="hidden" id="sno" name="sno">
 	</form>
 	<script type="text/javascript">

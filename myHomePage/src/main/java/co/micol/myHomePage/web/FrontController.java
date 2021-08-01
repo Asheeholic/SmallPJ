@@ -26,6 +26,7 @@ import co.micol.myHomePage.member.command.LogoutCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
 import co.micol.myHomePage.sns.command.SnsListCommand;
+import co.micol.myHomePage.sns.command.SnsSelectCommand;
 import co.micol.myHomePage.member.command.idCheckForm;
 
 /**
@@ -53,8 +54,6 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsert.do", new MemberInsert());
 		map.put("/idCheckForm.do", new idCheckForm());
 	
-		
-	
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); // 회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());
@@ -65,7 +64,8 @@ public class FrontController extends HttpServlet {
 		map.put("/examDownload.do", new ExamDownloadCommand());
 		
 		map.put("/snsList.do", new SnsListCommand());
-		
+		map.put("/snsSelect.do", new SnsSelectCommand());
+	
 	}
 
 	/**

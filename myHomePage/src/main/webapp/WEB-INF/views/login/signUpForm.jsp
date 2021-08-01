@@ -21,6 +21,8 @@
             alert("비밀번호가 일치합니다");
             return true;
           }
+   
+    
     }
     
   </script>
@@ -88,7 +90,7 @@
 					</div><br/>
 					<div>
 						<input type="submit" value="회원가입">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="reset" value="취 소" >
+						<button onClick="location.href='loginform.do'">홈으로</button>
 					</div>
 				</form>
 			</div>

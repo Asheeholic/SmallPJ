@@ -1,22 +1,101 @@
 package co.micol.myHomePage.sns.ServiceImpl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import co.micol.myHomePage.dao.DataSource;
 import co.micol.myHomePage.sns.Service.SnsService;
 import co.micol.myHomePage.vo.SnsVO;
 
 public class SnsServiceImpl implements SnsService {
-
+	
+	DataSource dataSource = DataSource.getInstance();
+	private Connection conn;
+	private PreparedStatement psmt;
+	private ResultSet rs;
+	
+	private void disconnect() {
+		try {
+			if(rs != null) rs.close();
+			if(psmt != null) psmt.close();
+			if(conn != null) conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public List<SnsVO> boardSelectList() {
 		// TODO 게시판 리스트 출력
-		return null;
+		String sql = "select * from sns";
+		List<SnsVO> list = new ArrayList<SnsVO>();
+		SnsVO vo;
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new SnsVO();
+				vo.setsNo(rs.getInt("sno"));
+				vo.setsWriter(rs.getString("swriter"));
+				vo.setsDate(rs.getDate("sDate"));
+				vo.setsTitle(rs.getString("stitle"));
+				vo.setsAno(rs.getInt("sano"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		
+		return list;
 	}
 
 	@Override
-	public List<SnsVO> boardSelectAndCommentsList(SnsVO vo) {
+	public List<SnsVO> boardSelectAndCommentsList(String sno) {
 		// TODO 게시판 선택후 게시글과 댓글들 출력
-		return null;
+		String sql = "select s.*, c.cno, c.cname, c.csubject, c.cdate "
+				+ "from sns s left outer join comments c "
+				+ "on (s.sno = c.sno) "
+				+ "where s.sno = ?";
+		List<SnsVO> list = new ArrayList<SnsVO>();
+		SnsVO vo;
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, sno);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new SnsVO();
+				vo.setsNo(rs.getInt("sno"));
+				vo.setsWriter(rs.getString("swriter"));
+				vo.setsContents(rs.getString("scontents"));
+				vo.setsDate(rs.getDate("sDate"));
+				vo.setsTitle(rs.getString("stitle"));
+				vo.setsAno(rs.getInt("sano"));
+				
+				vo.setcNo(rs.getInt("cno"));
+				vo.setcName(rs.getString("cname"));
+				vo.setcSubject(rs.getString("cSubject"));
+				vo.setcDate(rs.getDate("cdate"));
+				
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		
+		return list;
 	}
 
 	@Override

@@ -1,11 +1,13 @@
 package co.micol.myHomePage.vo;
 
+import java.sql.Date;
+
 public class CommentsVO {
 	private int sNo;
 	private int cNo;
 	private String cName;
 	private String cSubject;
-	private String cDate;
+	private Date cDate;
 
 	public CommentsVO() {
 		super();
@@ -43,11 +45,11 @@ public class CommentsVO {
 		this.cSubject = cSubject;
 	}
 
-	public String getcDate() {
+	public Date getcDate() {
 		return cDate;
 	}
 
-	public void setcDate(String cDate) {
+	public void setcDate(Date cDate) {
 		this.cDate = cDate;
 	}
 

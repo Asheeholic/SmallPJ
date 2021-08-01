@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div>
+		${message }
+	</div>
 	<table class="table table-light table-hover">
 		<thead>
 			<tr>

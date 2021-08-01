@@ -177,7 +177,22 @@ public class SnsServiceImpl implements SnsService {
 	@Override
 	public int snsDelete(SnsVO vo) {
 		// TODO 게시글 삭제
-		return 0;
+		String sql = "delete from sns "
+				+ "where id = ? and sno = ?";
+		int result = 0;
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			psmt.setInt(2, vo.getsNo());
+			result = psmt.executeUpdate();			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return result;
 	}
 
 	@Override

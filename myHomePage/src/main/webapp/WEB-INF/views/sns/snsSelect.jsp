@@ -9,12 +9,14 @@
 </head>
 <body>
 	${snsDetail[0].sTitle }
+	<br>
+	${snsDetail[0].sNo}
 	(${snsDetail[0].id})
 	(${sessionId})
-	<button type="button" onclick="deleteSns('${snsDetail[0].sno}')">삭제</button>
+	<button type="button" onclick="deleteSns('${snsDetail[0].sNo}')">게시글 삭제</button>
 	<br>
-	<c:forEach var="sns" items="${snsDetail }">
-		${sns.cName } : ${sns.cSubject } : <button type="button" onclick="deleteComments('${sns.cNo}')">삭제</button>
+	<c:forEach var="sns" items="${snsDetail}">
+		${sns.cName} : ${sns.cSubject} : <button type="button" onclick="deleteComments('${sns.cNo}')">댓글 삭제</button>
 		<br>
 	</c:forEach>
 	<br>
@@ -40,19 +42,19 @@
 	
 	
 	<!-- 게시글 삭제 -->
-	<form id="delSns" name="delSns" action="snsdelete.do" method="post">
-		<input type="hidden" id="sno" name="sno">
+	<form id="delSns" name="delSns" action="snsDelete.do" method="post">
+		<input type="hidden" id="dno" name="dno">
 	</form>
 	<script type="text/javascript">
 		function deleteSns(n) {
-			delSns.sno.value = n;
+			delSns.dno.value = n;
 			delSns.submit();
 		}
 	</script>
 	
 	
 	<!-- 댓글 삭제 -->
-	<form id="delComment" name="frm" action="commentdelete.do" method="post">
+	<form id="delComment" name="frm" action="commentDelete.do" method="post">
 		<input type="hidden" id="cno" name="cno">
 	</form>
 	<script type="text/javascript">

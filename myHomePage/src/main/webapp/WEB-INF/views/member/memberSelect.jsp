@@ -39,17 +39,17 @@
 			
 		</table> 
 	</div>
-	<div>
+	<div align="center">
 		<button type="button" onclick="location.href='memberList.do'">뒤로</button> &nbsp;&nbsp;&nbsp;
 		<button type="button" onclick="update()">회원수정</button> &nbsp;&nbsp;&nbsp; <!-- 관리자 전용 -->
-		<button type="button" onclick="location.href='memberDelete.do'">회원삭제</button>
+		
 	</div>
 	<!-- 수정 -->
 	<div>
 		<form id="updatefrm" name="updatefrm" action="memberUpdateForm.do" method="post">
 			<input type="hidden" id ="id" name ="id" value='${member.id }'>
-			<input type ="hidden" id ="password" name="password" value='${member.password }'>
-			<input type ="hidden" id = "name"  name="name" value='${member.name }' >
+			<input type="hidden" id ="password" name="password" value='${member.password }'>
+			<input type="hidden" id = "name"  name="name" value='${member.name }' >
 			<input type="hidden" id ="age" name ="age" value='${member.age }'>
 			<input type="hidden" id ="department" name ="department" value='${member.department }'>
 			<input type="hidden" id ="author" name ="author" value='${member.author }'>
@@ -60,6 +60,7 @@
 				updatefrm.submit();
 			}
 		</script>
+		
 	</div>
 </body>
 </html>

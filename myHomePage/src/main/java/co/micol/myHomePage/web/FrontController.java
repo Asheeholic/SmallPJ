@@ -24,6 +24,7 @@ import co.micol.myHomePage.login.command.MemberInsert;
 import co.micol.myHomePage.login.command.SignUpFormCommand;
 import co.micol.myHomePage.member.command.LogoutCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
+import co.micol.myHomePage.member.command.MemberDeleteCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
 import co.micol.myHomePage.member.command.MemberUpdateCommand;
 import co.micol.myHomePage.member.command.MemberUpdateFormCommand;
@@ -60,6 +61,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberSelect.do", new MeberSelectCommand());
 		map.put("/memberUpdateForm.do", new MemberUpdateFormCommand()); //회원 수정 폼 이동
 		map.put("/memberUpdate.do", new MemberUpdateCommand()); //회원 수정
+		map.put("/memberDelete.do", new MemberDeleteCommand());
 		
 		map.put("/examForm.do", new ExamFormCommand());
 		map.put("/examUpload.do", new ExamUploadCommand());

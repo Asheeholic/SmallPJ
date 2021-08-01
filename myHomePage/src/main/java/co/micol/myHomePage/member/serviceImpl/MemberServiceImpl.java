@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService {
 		// 회원(학생,교수) 전체조회
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		MemberVO vo;
-		String sql = "select * from member";
+		String sql = "select * from member where state='Y'";
 		conn = dataSource.getConnection();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -163,8 +163,19 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int memberDelete(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 회원삭제
+		int n = 0;
+		String sql = "update member set state='D' where id=?";
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			 n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return n;
 	}
 
 }

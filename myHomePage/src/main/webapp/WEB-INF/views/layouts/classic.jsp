@@ -5,20 +5,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>예담예술대학교 LMS</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 </head>
-<body>
-	<table border="1">
-		<tr>
-			<td colspan="2"><tiles:insertAttribute name="header" /></td>
-		</tr>
-		<tr>
-			<td><tiles:insertAttribute name="menu" /></td>
-			<td><tiles:insertAttribute name="body" /></td>
-		</tr>
-		<tr>
-			<td colspan="2"><tiles:insertAttribute name="footer" /></td>
-		</tr>
-	</table>
+<body class="bg-dark">
+	<div class="container-fluid">
+		<div class="d-flex flex-stratch row" >
+			<tiles:insertAttribute name="menu" />
+			<div class="col-md-10 col-12">
+				<div class="row">
+					<div class="col-12 sticky-top"><tiles:insertAttribute name="header" /></div>
+					<div class="col-12 bg-white m-3"><tiles:insertAttribute name="body" /></div>
+					<div class="col-12"><tiles:insertAttribute name="footer" /></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%-- <tiles:insertAttribute name="header" />
+	<tiles:insertAttribute name="menu" />
+	<tiles:insertAttribute name="body" />
+	<tiles:insertAttribute name="footer" /> --%>
+	
+	
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

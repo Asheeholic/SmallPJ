@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>footer</title>
 </head>
 <body>
-푸터를 안적었었네 ㅋㅋ
+	<div class="p-3 bg-dark text-light d-flex justify-content-center">
+		<p>
+			Copyright 2021. Han Jae Ho, Lee Geon Hui All pictures cannot be copied without permission. 
+		</p>
+	</div>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 form 영역</title>
+
 </head>
 <body>
 	<div align="center">
@@ -30,7 +31,7 @@
 					<div>
 						<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
 						<input type="reset" value="취소">&nbsp;&nbsp;&nbsp;
-						<button onClick="location.href='loginSuccess.jsp'"> 회원가입 </button>
+						<button onClick="location.href='signUpForm.do'"> 회원가입 </button>
 					</div>
 					
 

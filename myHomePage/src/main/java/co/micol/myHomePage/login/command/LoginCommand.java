@@ -30,7 +30,7 @@ public class LoginCommand implements Command {
 			session.setAttribute("author", vo.getAuthor());
 			session.setAttribute("id", vo.getId());
 			page = "home/home";
-			System.out.println("로그인 성공됐니?");
+			System.out.println("로그인 성공!!!");
 		} else {
 			String message = "존재하지 않는 아이디 또는 패스워드가 틀립니다.";
 			request.setAttribute("message", message);

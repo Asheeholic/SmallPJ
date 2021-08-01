@@ -37,7 +37,7 @@
 	</div><br/>
 	<div>
 		<button type="button" onclick="location.href='home.do'">홈으로</button>&nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="location.href='memberInsert.do'">회원추가</button> <!-- 관리자 전용 -->
+		<button type="button" onclick="location.href='memberUpdate.do'">회원수정</button> <!-- 관리자 전용 -->
 	</div>
 	<div>
 		<form id="frm" name="frm" action="memberSelect.do" method="post">

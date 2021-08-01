@@ -5,13 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.micol.myHomePage.common.Command;
 
-public class LoginformCommand implements Command {
+public class SignUpForm implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO 로그인 폼 영역 
-		
-		return "login/loginform.jsp";
+		// TODO 회원가입 폼으로 이동 
+		return "login/signUpForm.jsp";
 	}
 
 }

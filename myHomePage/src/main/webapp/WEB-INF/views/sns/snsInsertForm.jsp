@@ -30,7 +30,7 @@
 		</table>
 		<br>
 		<input type="submit" value="완료">
-		<button type="button" onclick="location.href='snsList.do'">게시판으로</button>
+		<button type="button" onclick="location.href='snsList.do'">목록으로</button>
 	</form>
 </body>
 </html>

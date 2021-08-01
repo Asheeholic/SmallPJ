@@ -64,7 +64,8 @@ public class SnsServiceImpl implements SnsService {
 		String sql = "select s.*, c.cno, c.cname, c.csubject, c.cdate "
 				+ "from sns s left outer join comments c "
 				+ "on (s.sno = c.sno) "
-				+ "where s.sno = ?";
+				+ "where s.sno = ? "
+				+ "order by c.cno";
 		List<SnsVO> list = new ArrayList<SnsVO>();
 		SnsVO vo;
 		conn = dataSource.getConnection();
@@ -123,9 +124,41 @@ public class SnsServiceImpl implements SnsService {
 	@Override
 	public int commentsInsert(SnsVO vo) {
 		// TODO 선택된 게시글의 댓글 삽입
-		return 0;
+		String sql = "insert into comments(sno, cno, cname, csubject) "
+				+ "values(?, CNO_SEQ.nextval, ?, ?)";
+		int result = 0;
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getsNo());
+			psmt.setString(2, vo.getcName());
+			psmt.setString(3, vo.getcSubject());
+			result = psmt.executeUpdate();
+			
+			updateSano(vo.getsNo());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return result;
 	}
 
+	private void updateSano(int sNo) {
+		String sql = "update sns set sano = (sano + 1) "
+				+ "where sno = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, sNo);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	@Override
 	public int snsUpdate(SnsVO vo) {
 		// TODO 게시글 수정

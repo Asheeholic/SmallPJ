@@ -25,6 +25,7 @@ import co.micol.myHomePage.login.command.SignUpFormCommand;
 import co.micol.myHomePage.member.command.LogoutCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
+import co.micol.myHomePage.sns.command.CommentsInsertCommand;
 import co.micol.myHomePage.sns.command.SnsInsertCommand;
 import co.micol.myHomePage.sns.command.SnsInsertFormCommand;
 import co.micol.myHomePage.sns.command.SnsListCommand;
@@ -69,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("/snsSelect.do", new SnsSelectCommand());
 		map.put("/snsInsertForm.do", new SnsInsertFormCommand());
 		map.put("/snsInsert.do", new SnsInsertCommand());
+		map.put("/commentsInsert.do", new CommentsInsertCommand());
 		
 	}
 

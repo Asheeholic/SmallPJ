@@ -30,6 +30,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<br>
+	<button type="button" onclick="location.href='snsInsertForm.do'">글쓰기</button>
 	<form id="frm" name="frm" action="snsSelect.do" method="post">
 		<input type="hidden" id="sno" name="sno">
 	</form>

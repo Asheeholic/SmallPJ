@@ -13,5 +13,6 @@
 	<c:forEach var="sns" items="${snsDetail }">
 		${sns.cName } : ${sns.cSubject }
 	</c:forEach>
+	
 </body>
 </html>

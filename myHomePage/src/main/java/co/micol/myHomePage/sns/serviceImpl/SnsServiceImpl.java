@@ -165,7 +165,25 @@ public class SnsServiceImpl implements SnsService {
 	@Override
 	public int snsUpdate(SnsVO vo) {
 		// TODO 게시글 수정
-		return 0;
+		String sql = "update sns set "
+				+ "swriter = ?, stitle = ?, scontents = ? "
+				+ "where sno = ?";
+		int result = 0;
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getsWriter());
+			psmt.setString(2, vo.getsTitle());
+			psmt.setString(3, vo.getsContents());
+			psmt.setInt(4, vo.getsNo());
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return result;
 	}
 
 	@Override

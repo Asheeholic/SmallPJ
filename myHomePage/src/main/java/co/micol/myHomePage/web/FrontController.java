@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.method.annotation.MapMethodProcessor;
+
 import co.micol.myHomePage.command.HomeCommand;
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.exam.command.ExamDownloadCommand;
@@ -32,6 +34,8 @@ import co.micol.myHomePage.sns.command.SnsInsertCommand;
 import co.micol.myHomePage.sns.command.SnsInsertFormCommand;
 import co.micol.myHomePage.sns.command.SnsListCommand;
 import co.micol.myHomePage.sns.command.SnsSelectCommand;
+import co.micol.myHomePage.sns.command.SnsUpdateCommand;
+import co.micol.myHomePage.sns.command.SnsUpdateFormCommand;
 import co.micol.myHomePage.member.command.idCheckForm;
 
 /**
@@ -75,6 +79,9 @@ public class FrontController extends HttpServlet {
 		map.put("/commentsInsert.do", new CommentsInsertCommand());
 		map.put("/snsDelete.do", new SnsDeleteCommand());
 		map.put("/commentDelete.do", new CommentDeleteCommand());
+		map.put("/snsUpdateForm.do", new SnsUpdateFormCommand());
+		map.put("/snsUpdate.do", new SnsUpdateCommand());
+	
 	}
 
 	/**

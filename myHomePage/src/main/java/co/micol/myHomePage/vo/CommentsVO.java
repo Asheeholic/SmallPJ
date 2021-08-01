@@ -8,6 +8,7 @@ public class CommentsVO {
 	private String cName;
 	private String cSubject;
 	private Date cDate;
+	private String id;
 
 	public CommentsVO() {
 		super();
@@ -53,4 +54,13 @@ public class CommentsVO {
 		this.cDate = cDate;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	
 }

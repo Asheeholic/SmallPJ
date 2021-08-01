@@ -81,6 +81,7 @@ public class SnsServiceImpl implements SnsService {
 				vo.setsDate(rs.getDate("sDate"));
 				vo.setsTitle(rs.getString("stitle"));
 				vo.setsAno(rs.getInt("sano"));
+				vo.setId(rs.getString("id"));
 				
 				vo.setcNo(rs.getInt("cno"));
 				vo.setcName(rs.getString("cname"));
@@ -102,8 +103,8 @@ public class SnsServiceImpl implements SnsService {
 	@Override
 	public int snsInsert(SnsVO vo) {
 		// TODO 게시글 삽입
-		String sql = "insert into sns(sno, swriter, stitle, scontents) "
-				+ "values(SNO_SEQ.nextval, ?, ?, ?)";
+		String sql = "insert into sns(sno, swriter, stitle, scontents, id) "
+				+ "values(SNO_SEQ.nextval, ?, ?, ?, ?)";
 		int result = 0;
 		conn = dataSource.getConnection();
 		try {
@@ -111,6 +112,7 @@ public class SnsServiceImpl implements SnsService {
 			psmt.setString(1, vo.getsWriter());
 			psmt.setString(2, vo.getsTitle());
 			psmt.setString(3, vo.getsContents());
+			psmt.setString(4, vo.getId());
 			result = psmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -124,8 +126,8 @@ public class SnsServiceImpl implements SnsService {
 	@Override
 	public int commentsInsert(SnsVO vo) {
 		// TODO 선택된 게시글의 댓글 삽입
-		String sql = "insert into comments(sno, cno, cname, csubject) "
-				+ "values(?, CNO_SEQ.nextval, ?, ?)";
+		String sql = "insert into comments(sno, cno, cname, csubject, id) "
+				+ "values(?, CNO_SEQ.nextval, ?, ?, ?)";
 		int result = 0;
 		conn = dataSource.getConnection();
 		try {
@@ -133,9 +135,10 @@ public class SnsServiceImpl implements SnsService {
 			psmt.setInt(1, vo.getsNo());
 			psmt.setString(2, vo.getcName());
 			psmt.setString(3, vo.getcSubject());
+			psmt.setString(4, vo.getId());
 			result = psmt.executeUpdate();
 			
-			updateSano(vo.getsNo());
+			updateSanoPlus(vo.getsNo());
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -146,7 +149,7 @@ public class SnsServiceImpl implements SnsService {
 		return result;
 	}
 
-	private void updateSano(int sNo) {
+	private void updateSanoPlus(int sNo) {
 		String sql = "update sns set sano = (sano + 1) "
 				+ "where sno = ?";
 		try {

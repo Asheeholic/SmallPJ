@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.sns.service.SnsService;
@@ -16,6 +17,10 @@ public class SnsSelectCommand implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 가져온 번호로 출력
 		
+//		HttpSession session = request.getSession();
+//		String sessionId = (String) request.getAttribute("sessionId");
+		
+		
 		SnsService dao = new SnsServiceImpl();
 		
 		String sno = request.getParameter("sno");
@@ -23,6 +28,7 @@ public class SnsSelectCommand implements Command {
 		List<SnsVO> list = dao.snsSelectAndCommentsList(sno);
 		
 		request.setAttribute("snsDetail", list);
+//		request.setAttribute("sessionId", sessionId);
 		
 		return "sns/snsSelect";
 	}

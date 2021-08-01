@@ -2,6 +2,7 @@ package co.micol.myHomePage.sns.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.sns.service.SnsService;
@@ -15,15 +16,18 @@ public class SnsInsertCommand implements Command {
 		// TODO 게시글 입력
 		
 		SnsService dao = new SnsServiceImpl();
+		HttpSession session = request.getSession();
 		
 		String writer = request.getParameter("writer");
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
+		String id = (String) session.getAttribute("sessionId");
 		
 		SnsVO vo = new SnsVO();
 		vo.setsWriter(writer);
 		vo.setsTitle(title);
 		vo.setsContents(contents);
+		vo.setId(id);
 		
 		int result = dao.snsInsert(vo);
 		

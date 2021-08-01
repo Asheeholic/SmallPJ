@@ -2,6 +2,7 @@ package co.micol.myHomePage.sns.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.micol.myHomePage.common.Command;
 import co.micol.myHomePage.sns.service.SnsService;
@@ -15,15 +16,18 @@ public class CommentsInsertCommand implements Command {
 		// TODO Auto-generated method stub
 		
 		SnsService dao = new SnsServiceImpl();
+		HttpSession session = request.getSession();
 		
 		int sNo = Integer.valueOf(request.getParameter("sno"));
 		String cName = request.getParameter("writer");
 		String cSubject = request.getParameter("contents");
+		String id = (String) session.getAttribute("sessionId");
 		
 		SnsVO vo = new SnsVO();
 		vo.setsNo(sNo);
 		vo.setcName(cName);
 		vo.setcSubject(cSubject);
+		vo.setId(id);
 		
 		int result = dao.commentsInsert(vo);
 		

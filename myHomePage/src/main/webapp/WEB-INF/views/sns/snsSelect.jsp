@@ -9,13 +9,17 @@
 </head>
 <body>
 	${snsDetail[0].sTitle }
+	(${snsDetail[0].id})
+	(${sessionId})
+	<button type="button" onclick="deleteSns('${snsDetail[0].sno}')">삭제</button>
 	<br>
 	<c:forEach var="sns" items="${snsDetail }">
-		${sns.cName } : ${sns.cSubject }
+		${sns.cName } : ${sns.cSubject } : <button type="button" onclick="deleteComments('${sns.cNo}')">삭제</button>
 		<br>
 	</c:forEach>
 	<br>
 	<hr>
+	
 	댓글쓰기
 	<br>
 	<form id="frm" name="frm" action="commentsInsert.do" method="post">
@@ -33,5 +37,29 @@
 		<input type="submit" value="완료">
 		<button type="button" onclick="location.href='snsList.do'">목록으로</button>
 	</form>
+	
+	
+	<!-- 게시글 삭제 -->
+	<form id="delSns" name="delSns" action="snsdelete.do" method="post">
+		<input type="hidden" id="sno" name="sno">
+	</form>
+	<script type="text/javascript">
+		function deleteSns(n) {
+			delSns.sno.value = n;
+			delSns.submit();
+		}
+	</script>
+	
+	
+	<!-- 댓글 삭제 -->
+	<form id="delComment" name="frm" action="commentdelete.do" method="post">
+		<input type="hidden" id="cno" name="cno">
+	</form>
+	<script type="text/javascript">
+		function deleteComments(n) {
+			delComment.cno.value = n;
+			delComment.submit();
+		}
+	</script>
 </body>
 </html>

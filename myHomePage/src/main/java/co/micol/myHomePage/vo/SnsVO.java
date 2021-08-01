@@ -9,6 +9,7 @@ public class SnsVO extends CommentsVO{
 	private String sTitle;
 	private String sContents;
 	private int sAno;
+	private String id;
 
 	public SnsVO() {
 		super();
@@ -61,5 +62,15 @@ public class SnsVO extends CommentsVO{
 	public void setsAno(int sAno) {
 		this.sAno = sAno;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 
 }

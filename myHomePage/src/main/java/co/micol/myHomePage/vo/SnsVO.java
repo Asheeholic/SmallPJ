@@ -2,7 +2,7 @@ package co.micol.myHomePage.vo;
 
 import java.sql.Date;
 
-public class SnsVO {
+public class SnsVO extends CommentsVO{
 	private int sNo;
 	private String sWriter;
 	private Date sDate;

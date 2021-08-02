@@ -94,7 +94,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
 		// TODO 로그인
-		String sql = "select name, author from member where id=? and password=? and state='Y'";
+		String sql = "select name, author,state from member where id=? and password=? and state='Y'";
 		conn = dataSource.getConnection();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -105,6 +105,7 @@ public class MemberServiceImpl implements MemberService {
 			if (rs.next()) {
 				vo.setName(rs.getString("name"));
 				vo.setAuthor(rs.getString("author"));
+				vo.setState(rs.getString("state").charAt(0));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

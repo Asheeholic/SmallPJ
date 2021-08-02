@@ -22,11 +22,10 @@ public class LoginCommand implements Command {
 		vo.setPassword(request.getParameter("password"));
 		vo = dao.memberLogin(vo);
 		System.out.println("Login.....");
-		char s = 'Y';
 		String page = "";
 		// 권한
-
-		if (vo.getName() != null ) {
+		
+		if (vo.getName() != null && vo.getState() == 'Y') {
 			session.setAttribute("sessionName", vo.getName());
 			session.setAttribute("sessionAuthor", vo.getAuthor());
 			session.setAttribute("sessionId", vo.getId());

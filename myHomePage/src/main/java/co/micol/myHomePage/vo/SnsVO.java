@@ -2,13 +2,14 @@ package co.micol.myHomePage.vo;
 
 import java.sql.Date;
 
-public class SnsVO {
+public class SnsVO extends CommentsVO{
 	private int sNo;
 	private String sWriter;
 	private Date sDate;
 	private String sTitle;
 	private String sContents;
 	private int sAno;
+	private String id;
 
 	public SnsVO() {
 		super();
@@ -61,5 +62,15 @@ public class SnsVO {
 	public void setsAno(int sAno) {
 		this.sAno = sAno;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 
 }

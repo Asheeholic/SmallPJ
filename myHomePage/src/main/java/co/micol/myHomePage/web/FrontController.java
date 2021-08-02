@@ -26,8 +26,20 @@ import co.micol.myHomePage.member.command.LogoutCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
 import co.micol.myHomePage.member.command.MemberDeleteCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
+
 import co.micol.myHomePage.member.command.MemberUpdateCommand;
 import co.micol.myHomePage.member.command.MemberUpdateFormCommand;
+
+import co.micol.myHomePage.sns.command.CommentDeleteCommand;
+import co.micol.myHomePage.sns.command.CommentsInsertCommand;
+import co.micol.myHomePage.sns.command.SnsDeleteCommand;
+import co.micol.myHomePage.sns.command.SnsInsertCommand;
+import co.micol.myHomePage.sns.command.SnsInsertFormCommand;
+import co.micol.myHomePage.sns.command.SnsListCommand;
+import co.micol.myHomePage.sns.command.SnsSelectCommand;
+import co.micol.myHomePage.sns.command.SnsUpdateCommand;
+import co.micol.myHomePage.sns.command.SnsUpdateFormCommand;
+
 import co.micol.myHomePage.member.command.idCheckForm;
 
 /**
@@ -54,8 +66,7 @@ public class FrontController extends HttpServlet {
 		map.put("/signUpForm.do", new SignUpFormCommand());
 		map.put("/memberInsert.do", new MemberInsert()); //회원가입 
 		map.put("/idCheckForm.do", new idCheckForm());
-		
-		
+
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); // 회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());
@@ -67,6 +78,17 @@ public class FrontController extends HttpServlet {
 		map.put("/examUpload.do", new ExamUploadCommand());
 		map.put("/examList.do", new ExamListCommand());
 		map.put("/examDownload.do", new ExamDownloadCommand());
+		
+		map.put("/snsList.do", new SnsListCommand());
+		map.put("/snsSelect.do", new SnsSelectCommand());
+		map.put("/snsInsertForm.do", new SnsInsertFormCommand());
+		map.put("/snsInsert.do", new SnsInsertCommand());
+		map.put("/commentsInsert.do", new CommentsInsertCommand());
+		map.put("/snsDelete.do", new SnsDeleteCommand());
+		map.put("/commentDelete.do", new CommentDeleteCommand());
+		map.put("/snsUpdateForm.do", new SnsUpdateFormCommand());
+		map.put("/snsUpdate.do", new SnsUpdateCommand());
+	
 	}
 
 	/**

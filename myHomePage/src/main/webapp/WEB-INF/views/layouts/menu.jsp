@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,29 +22,47 @@
 	        </a>
 	      </li>
 	      <li>
-	        <a href="#" class="nav-link text-white">
+	        <a href="snsList.do" class="nav-link text-white">
 	          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
 	          Community
 	        </a>
 	      </li>
-	      <li>
-	        <a href="examForm.do" class="nav-link text-white">
-	          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-	          Exam Submit (stu only)
-	        </a>
-	      </li>
-	      <li>
-	        <a href="examList.do" class="nav-link text-white">
-	          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-	          ExamList (prof only)
-	        </a>
-	      </li>
-	      <li>
-	        <a href="memberList.do" class="nav-link text-white">
-	          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-	          MemberList (admin only)
-	        </a>
-	      </li>
+	      <c:if test="${session.author == 'STUDENT'}">
+		      <li>
+		        <a href="examForm.do" class="nav-link text-white">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+		          Exam Submit (stu only)
+		        </a>
+		      </li>
+	      </c:if>
+	      <c:if test="${session.author == 'PROFESSOR'}">
+		      <li>
+		        <a href="examList.do" class="nav-link text-white">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+		          ExamList (prof only)
+		        </a>
+		      </li>
+	      </c:if>
+	      <c:if test="${session.author == 'ADMIN'}">
+		      <li>
+		        <a href="examForm.do" class="nav-link text-white">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+		          Exam Submit (stu only)
+		        </a>
+		      </li>
+		      <li>
+		        <a href="examList.do" class="nav-link text-white">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+		          ExamList (prof only)
+		        </a>
+		      </li>
+		      <li>
+		        <a href="memberList.do" class="nav-link text-white">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+		          MemberList (admin only)
+		        </a>
+		      </li>
+	      </c:if>
 	    </ul>
 	    <hr>
 	    <div class="dropdown">

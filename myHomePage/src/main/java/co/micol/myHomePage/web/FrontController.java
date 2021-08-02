@@ -18,6 +18,8 @@ import co.micol.myHomePage.exam.command.ExamDownloadCommand;
 import co.micol.myHomePage.exam.command.ExamFormCommand;
 import co.micol.myHomePage.exam.command.ExamListCommand;
 import co.micol.myHomePage.exam.command.ExamUploadCommand;
+import co.micol.myHomePage.login.command.IdCheckCommand;
+import co.micol.myHomePage.login.command.IdCheckForm;
 import co.micol.myHomePage.login.command.LoginCommand;
 import co.micol.myHomePage.login.command.LoginformCommand;
 import co.micol.myHomePage.login.command.MemberInsert;
@@ -64,7 +66,9 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new LogoutCommand());
 		map.put("/signUpForm.do", new SignUpFormCommand());
 		map.put("/memberInsert.do", new MemberInsert()); //회원가입 
-
+		map.put("/idCheckForm.do", new IdCheckForm());
+		map.put("/idCheck.do", new IdCheckCommand()); //아이디 중복체크 Command
+			
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); // 회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());

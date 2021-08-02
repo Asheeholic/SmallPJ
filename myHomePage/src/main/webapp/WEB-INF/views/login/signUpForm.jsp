@@ -1,7 +1,3 @@
-<%@page import="java.sql.Connection"%>
-<%@page import="co.micol.myHomePage.member.serviceImpl.MemberServiceImpl"%>
-<%@page import="co.micol.myHomePage.vo.MemberVO"%>
-<%@page import="co.micol.myHomePage.dao.DataSource"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +6,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-
+	 function alertDialogBox() {
+		 alert("회원가입이 완료 되었습니다.");
+	 }
+	 function check_pw(){
+  
+         if(document.getElementById('password').value !='' && document.getElementById('passcheck').value!=''){
+             if(document.getElementById('password').value==document.getElementById('passcheck').value){
+                 document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+                 document.getElementById('check').style.color='blue';
+             }
+             else{
+                 document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+                 document.getElementById('check').style.color='red';
+             }
+         }
+     }
+	function idCheck(){
+		let id = document.getElementById("id").value;
+		
+		openWin = window.open("idCheckForm.do?id="+id,
+					"childForm", "width=570, height=350, resizable = no, scrollbars= no ");
+	}
   </script>
 </head>
 <body>
@@ -18,27 +35,27 @@
 		<div>
 			<h1>회 원 가 입</h1>
 			<div>
-				<form id="frm" name="frm" action="memberInsert.do" method="post">
+				<form id="frm" name="frm" action="memberInsert.do" method="post" onsubmit="alertDialogBox();">
 					<div>
 						<table border="1">
 							<tr>
 								<th width="150">아이디</th>
 								<td width="350">
 									<input type="text" id="id" name="id" placeholder="아이디 입력" required="required">
-									<input type="button" value="중복확인" onclick="openIdChk()">
+									<input type="button" value="중복확인" onclick="idCheck()">
 									
 								</td>
 							</tr>
 							<tr>
 								<th width= "150">비밀번호</th>
 								<td width= "350">
-									<input type="password" id="password" name="password" placeholder="비밀번호 입력" required="required">
+									<input type="password" id="password" name="password" placeholder="비밀번호 입력" required="required" onchange="check_pw()">
 								</td>
 							</tr>
 							<tr>
 								<th width= "150">비밀번호 확인</th>
 								<td width= "350">
-									<input type="password" id="passcheck" name="passcheck" placeholder="비밀번호 확인" onclick="checkValue()" required="required">
+									<input type="password" id="passcheck" name="passcheck" placeholder="비밀번호 확인" onchange="check_pw()" required="required" ><span id="check"></span>
 								</td>
 							</tr>
 							<tr>
@@ -76,17 +93,14 @@
 						</table>
 					</div><br/>
 					<div>
-						<input type="submit" value="회원가입">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<button onClick="location.href='loginform.do'">홈으로</button>
+						<input type="submit" value="회원가입" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 				</form>
+						<button onClick="location.href='loginform.do'">홈으로</button>
 			</div>
 		</div>
 	</div>
-	<%
-		
-	%>
 	
-	
+
 </body>
 </html>

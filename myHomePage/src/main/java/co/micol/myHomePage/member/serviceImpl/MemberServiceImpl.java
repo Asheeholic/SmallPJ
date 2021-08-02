@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService {
 		// 회원(학생,교수) 전체조회
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		MemberVO vo;
-		String sql = "select * from member";
+		String sql = "select * from member where state='Y'";
 		conn = dataSource.getConnection();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -94,7 +94,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
 		// TODO 로그인
-		String sql = "select name, author from member where id=? and password=? and state='Y'";
+		String sql = "select name, author,state from member where id=? and password=? and state='Y'";
 		conn = dataSource.getConnection();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -105,6 +105,7 @@ public class MemberServiceImpl implements MemberService {
 			if (rs.next()) {
 				vo.setName(rs.getString("name"));
 				vo.setAuthor(rs.getString("author"));
+				vo.setState(rs.getString("state").charAt(0));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -144,14 +145,38 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberUpdate(MemberVO vo) {
 		// TODO 회원 수정
+		int n = 0;
+		String sql ="update member set password=? , name = ?  where id =?";
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getPassword());
+			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getId());
+			n = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} disconnect();
 		
-		return 0;
+		return n;
 	}
 
 	@Override
 	public int memberDelete(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 회원삭제
+		int n = 0;
+		String sql = "update member set state='D' where id=?";
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			 n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return n;
 	}
 
 }

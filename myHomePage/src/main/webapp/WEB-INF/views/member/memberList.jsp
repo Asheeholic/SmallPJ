@@ -16,28 +16,23 @@
 <body>
 	<div>
 		<h1>학과 명단</h1>
-		<table border="1">
+		<table class="table table-hover">
 			<tr>
-				<th width="150">학사아이디</th>
-				<th width="150">이 름</th>
-		
-				<th width="150">학과명</th>
+				<th>학사아이디</th>
+				<th>이 름</th>
+				<th>학과명</th>
 			</tr>
 			<c:forEach var="member" items="${memberList }">
-				<tr onmouseover="this.style.background='yellow'" onmouseout="this.style.background='white'"
-					onclick="getRecord('${member.id}')">
-					<td align="center">${member.id }</td>
-					<td align="center">${member.name }</td>
-					
-					<td align="center">${member.department }</td>
-					
+				<tr onclick="getRecord('${member.id}')">
+					<td>${member.id }</td>
+					<td>${member.name }</td>
+					<td>${member.department }</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div><br/>
-	<div>
-		<button type="button" onclick="location.href='home.do'">홈으로</button>&nbsp;&nbsp;&nbsp;
-		
+	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+		<button class="btn btn-outline-primary" type="button" onclick="location.href='home.do'">홈으로</button>
 	</div>
 	<div>
 		<form id="frm" name="frm" action="memberSelect.do" method="post">

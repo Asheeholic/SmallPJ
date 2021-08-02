@@ -18,7 +18,7 @@
 				<div class="row">
 					<div class="col-12 sticky-top shadow "><tiles:insertAttribute name="header" /></div>
 					<div class="col-12 bg-light m-3">
-						<div class="m-3 shadow bg-light">
+						<div class="m-3 shadow bg-light rounded">
 							<div class="m-4 p-3">
 								<tiles:insertAttribute name="body" />													
 							</div>

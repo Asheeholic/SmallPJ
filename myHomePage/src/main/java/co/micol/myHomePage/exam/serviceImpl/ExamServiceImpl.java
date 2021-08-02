@@ -94,7 +94,7 @@ public class ExamServiceImpl implements ExamService {
 	@Override
 	public int examInsert(ExamVO vo) {
 		String sql = "insert into exam(id, file_path, fid) "
-				+ "values(?, ?, 3)";
+				+ "values(?, ?, fid_seq.nextval)";
 		int result = 0;
 		conn = dataSource.getConnection();
 		try {

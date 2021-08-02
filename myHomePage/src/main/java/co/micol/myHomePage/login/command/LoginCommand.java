@@ -22,20 +22,21 @@ public class LoginCommand implements Command {
 		vo.setPassword(request.getParameter("password"));
 		vo = dao.memberLogin(vo);
 		System.out.println("Login.....");
-
 		String page = "";
 		// 권한
-		if (vo.getName() != null) {
+		
+		if (vo.getName() != null && vo.getState() == 'Y') {
 			session.setAttribute("sessionName", vo.getName());
 			session.setAttribute("sessionAuthor", vo.getAuthor());
 			session.setAttribute("sessionId", vo.getId());
 			session.setAttribute("session", vo);
+
 			page = "home/home";
 			System.out.println("로그인 성공!!!");
 		} else {
 			String message = "존재하지 않는 아이디 또는 패스워드가 틀립니다.";
 			request.setAttribute("message", message);
-			page = "login/loginform";
+			page = "login/loginform.jsp";
 			System.out.println("로그인 실패");
 		}
 		return page;

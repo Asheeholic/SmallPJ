@@ -60,7 +60,6 @@
 										<option selected="selected">선택</option>
 										<option value="성악과">성악과</option>
 										<option value="작곡가">작곡가</option>
-										<option value="성악과">성악과</option>
 									</select>
 								</td>
 							</tr>

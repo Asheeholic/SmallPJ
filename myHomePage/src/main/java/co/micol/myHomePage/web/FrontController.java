@@ -24,7 +24,12 @@ import co.micol.myHomePage.login.command.MemberInsert;
 import co.micol.myHomePage.login.command.SignUpFormCommand;
 import co.micol.myHomePage.member.command.LogoutCommand;
 import co.micol.myHomePage.member.command.MeberSelectCommand;
+import co.micol.myHomePage.member.command.MemberDeleteCommand;
 import co.micol.myHomePage.member.command.MemberListCommand;
+
+import co.micol.myHomePage.member.command.MemberUpdateCommand;
+import co.micol.myHomePage.member.command.MemberUpdateFormCommand;
+
 import co.micol.myHomePage.sns.command.CommentDeleteCommand;
 import co.micol.myHomePage.sns.command.CommentsInsertCommand;
 import co.micol.myHomePage.sns.command.SnsDeleteCommand;
@@ -34,7 +39,7 @@ import co.micol.myHomePage.sns.command.SnsListCommand;
 import co.micol.myHomePage.sns.command.SnsSelectCommand;
 import co.micol.myHomePage.sns.command.SnsUpdateCommand;
 import co.micol.myHomePage.sns.command.SnsUpdateFormCommand;
-import co.micol.myHomePage.member.command.idCheckForm;
+
 
 /**
  * Servlet implementation class FrontController
@@ -58,13 +63,15 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new LoginCommand());
 		map.put("/logout.do", new LogoutCommand());
 		map.put("/signUpForm.do", new SignUpFormCommand());
-		map.put("/memberInsert.do", new MemberInsert());
-		map.put("/idCheckForm.do", new idCheckForm());
-	
+		map.put("/memberInsert.do", new MemberInsert()); //회원가입 
+
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberListCommand()); // 회원(학생,교수) 전체정보
 		map.put("/memberSelect.do", new MeberSelectCommand());
-
+		map.put("/memberUpdateForm.do", new MemberUpdateFormCommand()); //회원 수정 폼 이동
+		map.put("/memberUpdate.do", new MemberUpdateCommand()); //회원 수정
+		map.put("/memberDelete.do", new MemberDeleteCommand());
+		
 		map.put("/examForm.do", new ExamFormCommand());
 		map.put("/examUpload.do", new ExamUploadCommand());
 		map.put("/examList.do", new ExamListCommand());

@@ -12,7 +12,7 @@
 	<h5>${message}</h5>
     <form method="post" action="examUpload.do" enctype="multipart/form-data">
         파일선택: <input type="file" name="uploadFile" multiple="multiple"/>
-        <input type="hidden" name="id" value="${id }">
+        <input type="hidden" name="id" value="${sessionId }">
         <input type="submit" value="Upload"/>
     </form>
 </body>

@@ -31,12 +31,12 @@
 					<div>
 						<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
 						<input type="reset" value="취소">&nbsp;&nbsp;&nbsp;
-						<button onClick="location.href='signUpForm.do'"> 회원가입 </button>
 					</div>
+			</form>
+			<button onClick="location.href='signUpForm.do'"> 회원가입 </button>
 					
 
 
-			</form>
 		</div>
 	
 	</div>

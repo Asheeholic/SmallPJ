@@ -5,10 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<style>
+	@keyframes fadein {
+	    from {
+	        opacity: 0;
+	    }
+	    to {
+	        opacity: 1;
+	    }
+	}
+	.trans1 {
+		animation: fadein 1s;
+	}
+</style>
 </head>
 <body>
 	<div>
-		<h1>${sessionName }님 환영합니다.</h1>
+		<h1 class="trans1">${sessionName }님 환영합니다.</h1>
 	</div>
 	
 	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

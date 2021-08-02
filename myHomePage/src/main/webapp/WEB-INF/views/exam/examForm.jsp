@@ -13,7 +13,16 @@
 				<h1>시험의 동영상 파일들을 올려주세요!</h1>
 			</div>
 			<div class="col-12">
+				<span class="fs-5 text-secondary">파일은 100mb까지 가능합니다. 동영상 위주로 올려주세요.</span>
+			</div>
+			<div class="col-12">
+				<span class="fs-5 text-danger">올린 파일은 교수만이 확인 가능합니다!</span>
+			</div>
+			<div class="col-12">
 				<h3>${message }</h3>
+			</div>
+			<div class="col-12 p-3">
+				<hr>
 			</div>
 		    <form method="post" action="examUpload.do" enctype="multipart/form-data">
 				<div class="input-group d-grid gap-2 d-md-flex justify-content-md-end">

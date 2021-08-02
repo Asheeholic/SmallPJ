@@ -7,6 +7,20 @@
 <title>로그인 form 영역</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
+<style>
+	@keyframes fadein {
+	    from {
+	        opacity: 0;
+	    }
+	    to {
+	        opacity: 1;
+	    }
+	}
+	.trans1 {
+		animation: fadein 1s;
+	}
+</style>
+
 </head>
 <body class="bg-dark">
 	<div class="container">
@@ -23,7 +37,7 @@
                             <div class="col-lg-6 d-none d-lg-block">
                             	<img src="img/collage.jpg" class="image-thumnail rounded-start">
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 trans1">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Renault Samsung</h1>

@@ -12,6 +12,9 @@
 		<h1>자유게시판</h1>
 	</div>
 	<div>
+		<span class="fs-5 text-secondary">여러분들의 생각을 적어주세요!</span>
+	</div>
+	<div>
 		${message }
 	</div>
 	<div class="card">

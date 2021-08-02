@@ -9,6 +9,12 @@
 </head>
 <body>
 	<div class="row">
+		<div class="col-12">
+			<span class="fs-5 text-secondary">게시글</span>
+		</div>
+		<div class="col-12 p-3">
+			<hr>
+		</div>
 		<div class="col-12 fs-4">
 			<span class="text-primary">${snsDetail[0].sTitle }</span>
 		</div>

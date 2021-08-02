@@ -13,6 +13,7 @@ public interface MemberService {
 	MemberVO memberLogin(MemberVO vo); // 로그인
 	
 	int memberIdCheck(String id); //중복아이디 체크 
+	
 	int memberInsert(MemberVO vo); //회원(학생,교수) 가입
 	int memberUpdate(MemberVO vo); //회원(학생,교수) 수정
 	int memberDelete(MemberVO vo); //회원(학생,교수) 삭제<관리자만>

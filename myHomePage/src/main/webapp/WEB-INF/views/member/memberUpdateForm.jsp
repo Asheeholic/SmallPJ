@@ -11,7 +11,7 @@
 
 <h1 align="center">회원 상세보기(수정) </h1>
 	<div align="center">
-	<form id="frm" name="frm" action="memberUpdate.do" method="post">
+	<form id="frm" name="frm" action="memberUpdate.do" method="post" onsubmit="memberUpdate();">
 		<table border="1">
 			<tr>
 				<th width="70">아이디</th>
@@ -47,7 +47,7 @@
 			</tr>
 		</table> 
 		<div>
-			<input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="수정" >&nbsp;&nbsp;&nbsp;
 			<button type="button" onclick="memberDelete()">회원삭제</button>&nbsp;&nbsp;&nbsp;
 			<button type="button" onclick="location.href='memberList.do'">뒤로</button>&nbsp;&nbsp;&nbsp;
 			
@@ -59,7 +59,12 @@
 	</form>
 	<script type="text/javascript">
 		function memberDelete(){
+			let result = confirm(" 정말 삭제하시겠습니까?? ");
 			deletefrm.submit();
+		}
+		function memberUpdate(){
+			alert("수정이 완료되었습니다.");
+			frm.submit();
 		}
 	</script>	
 </body>

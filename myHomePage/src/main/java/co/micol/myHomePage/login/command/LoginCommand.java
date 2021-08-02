@@ -25,6 +25,7 @@ public class LoginCommand implements Command {
 		char s = 'Y';
 		String page = "";
 		// 권한
+		System.out.println();
 		if (vo.getName() != null ) {
 			session.setAttribute("sessionName", vo.getName());
 			session.setAttribute("sessionAuthor", vo.getAuthor());

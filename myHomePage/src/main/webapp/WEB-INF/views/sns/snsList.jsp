@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div><h1>자유게시판</h1></div>
 	<div>
 		${message }
 	</div>
@@ -34,7 +35,9 @@
 		</tbody>
 	</table>
 	<br>
-	<button type="button" onclick="location.href='snsInsertForm.do'">글쓰기</button>
+	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+		<button class="btn btn-outline-primary me-md-2" type="button" onclick="location.href='snsInsertForm.do'">글쓰기</button>
+	</div>
 	<form id="frm" name="frm" action="snsSelect.do" method="post">
 		<input type="hidden" id="sno" name="sno">
 	</form>

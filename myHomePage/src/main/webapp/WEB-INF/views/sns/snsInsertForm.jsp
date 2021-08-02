@@ -10,7 +10,7 @@
 <body>
 	<h1>자유게시판 글쓰기</h1>
 	<c:if test="${not empty message }">
-		<p>${message }</p>	
+		${message }
 	</c:if>
 	
 	<form id="frm" name="frm" action="snsInsert.do" method="post">

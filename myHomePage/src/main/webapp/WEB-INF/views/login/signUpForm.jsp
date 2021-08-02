@@ -5,8 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+	.jb-xx-small {font-size: xx-small; }
+	  .jb-red { color: red; }
+</style>
 
 <script type="text/javascript">
 	
@@ -41,14 +45,15 @@
 			
 				<div class="card bg-light o-hidden border-0 shadow-lg my-5">
 					 <div class="card-body p-0">
-						${message }
+						
 						<div class="row">
 							<div class="col-lg-6 d-none d-lg-block">
-                            	<img src="img/collage.jpg" class="image-thumnail rounded-start">
+                            	<img src="img/collage2.jpg" class="image-thumnail rounded-start">
                             </div>
                             <div class="col-lg-6">
                             	<div class="p-5">
 	                            	<div class="text-center">
+	                            		<h3 class="h4 text-gray-900 mb-4 jb-red">${message }</h3>
 	                                	<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
 	                            	</div>
 	                            
@@ -67,7 +72,7 @@
 																placeholder="아이디 입력" required="required" >
 													</div>
 													<div class="col-2">
-														<input type="button"  class="btn btn-secondary btn-sm" value="중복확인" onclick="idCheck()">														
+														<input type="button"  class="btn btn-primary btn-sm" value="중복확인" onclick="idCheck()">														
 													</div>			
 												</div>
 											</div>
@@ -96,7 +101,7 @@
 													<div class="col-12">
 														<input type="password" id="passcheck" class="form-control form-control-user"
 																name="passcheck" placeholder="비밀번호 확인" onchange="check_pw()"
-																required="required"><span id="check" class="font-monospace"></span>
+																required="required"><span id="check" class="jb-xx-small"></span>
 													</div>
 												</div>
 											</div>
@@ -132,7 +137,7 @@
 										<!-- 나이 종료 -->
 										
 										<!-- 학과명, 직책 설정 시작 -->	
-										<div class="form-group row">
+										<div class="form-group row my-2">
 											<div class="col-sm-6 mb-3 mb-sm-0">
 												<div class="row">
 													<div class="col-12">
@@ -151,7 +156,7 @@
 											<div class="col-sm-6 mb-3 mb-sm-0">
 												<div class="row">
 													<div class="col-12">
-														<span>직 책</span>
+														<span>직책</span>
 													</div>
 													<div>
 														<select name="author" id="author" class="form-control form-control-user"
@@ -166,21 +171,19 @@
 										</div>
 										<!-- 학과명, 직책 설정 종료 -->	
 										<div class="form-group row">
-												<input type="submit" value="회원가입" class="btn btn-secondary btn-sm">
+												<input type="submit" value="회원가입" class="btn btn-primary btn-sm">
 						
 										</div>	
 										</form>
 								</div> <!-- <div class="p-5"> 50번 종료 부분-->
 								<br/>
-							
-								<button onClick="location.href='loginform.do'">홈으로</button>
-								</div>
-							
+								
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
+	</div>
 </body>
 </html>

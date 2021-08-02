@@ -223,7 +223,10 @@ public class SnsServiceImpl implements SnsService {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getId());
 			psmt.setInt(2, vo.getcNo());
-			result = psmt.executeUpdate();			
+			result = psmt.executeUpdate();
+			
+			updateSanoMinus(vo.getsNo());
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -231,6 +234,19 @@ public class SnsServiceImpl implements SnsService {
 			disconnect();
 		}
 		return result;
+	}
+
+	private void updateSanoMinus(int sNo) {
+		// TODO Auto-generated method stub
+		String sql = "update sns set sano = (sano - 1) "
+				+ "where sno = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, sNo);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

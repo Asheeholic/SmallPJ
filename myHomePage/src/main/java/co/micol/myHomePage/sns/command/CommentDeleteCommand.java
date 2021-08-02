@@ -18,8 +18,10 @@ public class CommentDeleteCommand implements Command {
 		
 		SnsService dao = new SnsServiceImpl();
 		int cNo = Integer.valueOf(request.getParameter("cno"));
+		int sNo = Integer.valueOf(request.getParameter("csno"));
 		SnsVO vo = new SnsVO();
 		vo.setcNo(cNo);
+		vo.setsNo(sNo);
 		vo.setId(id);
 		
 		int result = dao.commentsDelete(vo);

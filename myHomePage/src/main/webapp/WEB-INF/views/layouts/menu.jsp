@@ -73,7 +73,7 @@
 	      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 	        <li><a class="dropdown-item" href="memberSelect.do?id=${session.id}">Profile</a></li>
 	        <li><hr class="dropdown-divider"></li>
-	        <li><a class="dropdown-item" href="logout.do">log out</a></li>
+	        <li><a class="dropdown-item" href="logout.do">Log out</a></li>
 	      </ul>
 	    </div>
   	</div>

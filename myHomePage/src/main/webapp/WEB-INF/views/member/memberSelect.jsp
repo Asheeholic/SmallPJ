@@ -8,41 +8,42 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center">회원 상세보기 </h1>
-	<div align="center">
-		
-		<table border="1">
-			<tr>
-				<th width="70">아이디</th>
-				<td align="center">${member.id }</td>
-			</tr>
-			<tr>	
-				<th width="150">비밀번호</th>
-				<td align="center">${member.password }</td>
-			</tr>
-			<tr>	
-				<th width="150">이  름</th>
-				<td align="center">${member.name }</td>
-			</tr>	
-			<tr>	
-				<th width="150">나  이</th>
-				<td align="center">${member.age }</td>
-			</tr>
-			<tr>	
-				<th width="150">학 과 명</th>
-				<td align="center">${member.department }</td>
-			</tr>
-			<tr>
-				<th width="150">직 책</th>
-				<td align="center">${member.author }</td>
-			</tr>
+	<div class="row">
+		<div class="col-12">
+			<h1>회원 상세보기 </h1>
+		</div>
+		<div class="col-12">
 			
-		</table> 
-	</div>
-	<div align="center">
-		<button type="button" onclick="location.href='memberList.do'">뒤로</button> &nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="update()">회원수정</button> &nbsp;&nbsp;&nbsp; <!-- 관리자 전용 -->
-		
+			<table class="table table-border">
+				<tr>
+					<th width="70">아이디</th>
+					<td align="center">${member.id }</td>
+				</tr>
+				<tr>	
+					<th width="150">비밀번호</th>
+					<td align="center">${member.password }</td>
+				</tr>
+				<tr>	
+					<th width="150">이  름</th>
+					<td align="center">${member.name }</td>
+				</tr>	
+				<tr>	
+					<th width="150">나  이</th>
+					<td align="center">${member.age }</td>
+				</tr>
+				<tr>	
+					<th width="150">학 과 명</th>
+					<td align="center">${member.department }</td>
+				</tr>
+				<tr>
+					<th width="150">직 책</th>
+					<td align="center">${member.author }</td>
+				</tr>
+			</table> 
+		</div>
+		<div align="center">
+			<button class="btn btn-outline-primary" type="button" onclick="update()">회원수정</button> &nbsp;&nbsp;&nbsp; <!-- 관리자 전용 -->
+		</div>
 	</div>
 	<!-- 수정 -->
 	<div>

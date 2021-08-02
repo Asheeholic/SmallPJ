@@ -1,7 +1,3 @@
-<%@page import="java.sql.Connection"%>
-<%@page import="co.micol.myHomePage.member.serviceImpl.MemberServiceImpl"%>
-<%@page import="co.micol.myHomePage.vo.MemberVO"%>
-<%@page import="co.micol.myHomePage.dao.DataSource"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,9 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
 
-  </script>
 </head>
 <body>
 	<div align="center">
@@ -83,9 +77,6 @@
 			</div>
 		</div>
 	</div>
-	<%
-		
-	%>
 	
 	
 </body>

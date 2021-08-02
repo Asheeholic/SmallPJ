@@ -20,7 +20,7 @@ public class SnsListCommand implements Command {
 		List<SnsVO> list = dao.snsSelectList();
 		
 		request.setAttribute("snsList", list);
-		
+		request.setAttribute("community", "active");
 		return "sns/snsList";
 	}
 

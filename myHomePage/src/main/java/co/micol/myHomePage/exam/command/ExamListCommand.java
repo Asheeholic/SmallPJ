@@ -21,7 +21,7 @@ public class ExamListCommand implements Command {
 		List<ExamVO> list = dao.examSelectList();
 		
 		request.setAttribute("examList", list);
-		
+		request.setAttribute("examListPage", "active");
 		return "exam/examList";
 	}
 

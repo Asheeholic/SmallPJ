@@ -5,41 +5,69 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 form 영역</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body>
-	<div align="center">
-		<h1>로 그 인</h1>
-		<div>
-			<form id="frm" action="login.do" method="post">
-				<div>
-					<table border="1">
-						<tr>
-							<th width="150">아 이 디</th>
-							<th width="200">
-								<input type="text" id="id" name="id" placeholder="아이디입력" required="required">
-								
-						</tr>
-						<tr>
-							<th width="150">비밀번호</th>
-							<th width="200">
-								<input type="password" id="password" name="password" placeholder="비밀번호 입력" required="required">
-								
-						</tr>
-					</table>
-				</div><br/>
-					<div>
-						<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
-						<input type="reset" value="취소">&nbsp;&nbsp;&nbsp;
-					</div>
-			</form>
-			<button onClick="location.href='signUpForm.do'"> 회원가입 </button>
-					
+<body class="bg-dark">
+	<div class="container">
 
+        <!-- Outer Row -->
+        <div class="mt-4 row justify-content-center bg-secondary rounded">
 
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card bg-light o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block">
+                            	<img src="img/collage.jpg" class="image-thumnail rounded-start">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Renault Samsung</h1>
+                                    </div>
+                                    <form class="user" id="frm" action="login.do" method="post">
+                                        <div class="form-group mb-2">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="id" name="id" aria-describedby="emailHelp"
+                                                placeholder="Enter Id..." required="required">
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <input type="password" class="form-control form-control-user"
+                                            id="password" name="password" placeholder="Password" required="required">
+                                        </div>
+                        				<div class="form-group mb-2">
+                        					<div class="d-flex justify-content-center">
+		                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">                        				
+                        					</div>
+                        				</div>
+                                        
+                                    </form>
+                                    <hr>
+                                    
+                                    <div class="text-center">
+                                        <a class="small" href="signUpForm.do">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+		<div class="p-3 text-light d-flex justify-content-center">
+			<p>
+				Copyright 2021. Han Jae Ho, Lee Geon Hui All pictures cannot be copied without permission. 
+			</p>
 		</div>
-	
-	</div>
+    </div>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
 			
 </body>
 </html>

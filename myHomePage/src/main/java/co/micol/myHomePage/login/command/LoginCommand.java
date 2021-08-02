@@ -31,7 +31,7 @@ public class LoginCommand implements Command {
 			session.setAttribute("sessionId", vo.getId());
 			session.setAttribute("session", vo);
 
-			page = "home/home";
+			page = "home.do";
 			System.out.println("로그인 성공!!!");
 		} else {
 			String message = "존재하지 않는 아이디 또는 패스워드가 틀립니다.";

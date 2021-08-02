@@ -10,6 +10,7 @@ public class HomeCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		request.setAttribute("home", "active");
 		return "home/home"; // tiles로 보내기 위해
 	}
 

@@ -20,6 +20,7 @@ public class MemberListCommand implements Command {
 		List<MemberVO> list = dao.memberSelectList();
 		
 		request.setAttribute("memberList", list);
+		request.setAttribute("memberListPage", "active");
 		
 		return "member/memberList";
 	}

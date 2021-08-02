@@ -7,17 +7,30 @@
 <title></title>
 </head>
 <body>
-	<h1>새로만든 본문인데 이거 사실 홈이야. 타일즈 안쪽에 들어갈거거든</h1>
-	<a href="memberList.do">리스트</a>
-	
-	<a href="examForm.do">시험제출</a>
-
-	<a href="examList.do">제출된 시험 보기</a>
-
-	<a href="snsList.do">게시판 보기</a>
-
 	<div>
 		<h1>${sessionName }님 환영합니다.</h1>
+	</div>
+	
+	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="carousel-item active">
+	      <img src="img/piano.jpg" class="d-block w-100 img-thumbnail" alt="...">
+	    </div>
+	    <div class="carousel-item">
+	      <img src="img/prague.jpg" class="d-block w-100 img-thumbnail" alt="...">
+	    </div>
+	    <div class="carousel-item">
+	      <img src="img/classical-music.jpg" class="d-block w-100 img-thumbnail" alt="...">
+	    </div>
+	  </div>
+	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Previous</span>
+	  </button>
+	  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Next</span>
+	  </button>
 	</div>
 </body>
 </html>

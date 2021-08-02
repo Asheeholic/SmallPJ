@@ -10,6 +10,8 @@ public class ExamFormCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 시험 폼 출력
+		
+		request.setAttribute("examSubmitPage", "active");
 		return "exam/examForm";
 	}
 

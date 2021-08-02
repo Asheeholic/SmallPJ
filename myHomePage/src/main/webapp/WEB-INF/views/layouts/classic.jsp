@@ -14,11 +14,17 @@
 	<div class="container-fluid">
 		<div class="d-flex flex-stratch row" >
 			<tiles:insertAttribute name="menu" />
-			<div class="col-md-10 col-12">
+			<div class="col-xl-10 col-12">
 				<div class="row">
-					<div class="col-12 sticky-top"><tiles:insertAttribute name="header" /></div>
-					<div class="col-12 bg-white m-3"><tiles:insertAttribute name="body" /></div>
-					<div class="col-12"><tiles:insertAttribute name="footer" /></div>
+					<div class="col-12 sticky-top shadow "><tiles:insertAttribute name="header" /></div>
+					<div class="col-12 bg-light m-3">
+						<div class="m-3 shadow bg-light">
+							<div class="m-4 p-3">
+								<tiles:insertAttribute name="body" />													
+							</div>
+						</div>
+					</div>
+					<div class="col-12 shadow "><tiles:insertAttribute name="footer" /></div>
 				</div>
 			</div>
 		</div>

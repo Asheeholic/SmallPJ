@@ -90,7 +90,28 @@ public class MemberServiceImpl implements MemberService {
 
 		return vo;
 	}
-
+	public int memberIdCheck(String id) {
+		int result = -1;
+		String sql = "select id from member where id=?";
+		conn = dataSource.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 0; //아이디 중복
+			} else {
+				result = -1;
+			}
+			System.out.println("아이디 중복체크 결과" + result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return result;
+	}
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
 		// TODO 로그인

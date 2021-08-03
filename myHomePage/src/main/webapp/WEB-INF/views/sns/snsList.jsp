@@ -14,9 +14,12 @@
 	<div>
 		<span class="fs-5 text-secondary">여러분들의 생각을 적어주세요!</span>
 	</div>
-	<div>
-		${message }
-	</div>
+	<c:if test="${not empty message }">
+        <div class="col-12 alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>알림!</strong> ${message }
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+    </c:if>
 	<div class="card">
 		<div class="card-body">
 			<table class="table table-light table-hover">

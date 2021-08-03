@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +43,12 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Renault Samsung</h1>
                                     </div>
+                                    <c:if test="${not empty message }">
+	                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+										  <strong>알림!</strong> ${message }
+										  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+										</div>
+                                    </c:if>
                                     <form class="user" id="frm" action="login.do" method="post">
                                         <div class="form-group mb-2">
                                             <input type="text" class="form-control form-control-user"

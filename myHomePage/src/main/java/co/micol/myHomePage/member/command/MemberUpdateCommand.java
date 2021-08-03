@@ -24,9 +24,10 @@ public class MemberUpdateCommand implements Command {
 		int n = dao.memberUpdate(vo);
 		String page ="";
 		if(n != 0) {
-			
+			request.setAttribute("message", "회원 수정이 완료 되었습니다");
 			page ="memberList.do";
 		}else {
+			request.setAttribute("message", "회원 수정이 실패 되었습니다");
 			page ="home/Error";
 		}
 		return page;

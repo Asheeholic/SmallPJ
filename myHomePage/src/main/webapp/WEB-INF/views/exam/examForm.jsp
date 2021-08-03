@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +19,12 @@
 			<div class="col-12">
 				<span class="fs-5 text-danger">올린 파일은 교수만이 확인 가능합니다!</span>
 			</div>
-			<div class="col-12">
-				<h3>${message }</h3>
-			</div>
+			<c:if test="${not empty message }">
+                <div class="col-12 alert alert-warning alert-dismissible fade show" role="alert">
+					<strong>알림!</strong> ${message }
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+            </c:if>
 			<div class="col-12 p-3">
 				<hr>
 			</div>

@@ -10,6 +10,7 @@ public class SnsVO extends CommentsVO{
 	private String sContents;
 	private int sAno;
 	private String id;
+	private String id1; // 다른 아이디를 가져오기 위한 수단. 고쳐야함.
 
 	public SnsVO() {
 		super();
@@ -69,6 +70,14 @@ public class SnsVO extends CommentsVO{
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getId1() {
+		return id1;
+	}
+
+	public void setId1(String id1) {
+		this.id1 = id1;
 	}
 	
 	

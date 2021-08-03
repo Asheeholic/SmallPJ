@@ -61,7 +61,7 @@ public class SnsServiceImpl implements SnsService {
 	@Override
 	public List<SnsVO> snsSelectAndCommentsList(String sno) {
 		// TODO 게시판 선택후 게시글과 댓글들 출력
-		String sql = "select s.*, c.cno, c.cname, c.csubject, c.cdate "
+		String sql = "select s.*, c.cno, c.cname, c.csubject, c.cdate, c.id \"ID2\" "
 				+ "from sns s left outer join comments c "
 				+ "on (s.sno = c.sno) "
 				+ "where s.sno = ? "
@@ -82,6 +82,7 @@ public class SnsServiceImpl implements SnsService {
 				vo.setsTitle(rs.getString("stitle"));
 				vo.setsAno(rs.getInt("sano"));
 				vo.setId(rs.getString("id"));
+				vo.setId1(rs.getString("ID2"));
 				
 				vo.setcNo(rs.getInt("cno"));
 				vo.setcName(rs.getString("cname"));

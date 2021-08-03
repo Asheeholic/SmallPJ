@@ -51,7 +51,7 @@
 				<c:if test="${not empty sns.cSubject}">
 					<strong class="px-3">${sns.cName}</strong>
 					<span>${sns.cSubject}</span> 
-					<c:if test="${session.id == sns.id}">
+					<c:if test="${session.id == sns.id1}">
 						<%-- <button type="button" onclick="updateComments('${sns.cNo}')">댓글 수정</button> --%>
 						<button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteComments('${sns.cNo}', '${sns.sNo}')">댓글 삭제</button>
 					</c:if>

@@ -16,14 +16,18 @@
 	
 	 function check_pw(){
   
-         if(document.getElementById('password').value !='' && document.getElementById('passcheck').value!=''){
-             if(document.getElementById('password').value==document.getElementById('passcheck').value){
-                 document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
-                 document.getElementById('check').style.color='blue';
-             }
-             else{
-                 document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
-                 document.getElementById('check').style.color='red';
+         if((document.getElementById('password').value != '') && (document.getElementById('passcheck').value != '')){
+             
+        	 if(document.getElementById('password').value == document.getElementById('passcheck').value){
+        		// 비밀번호 일치
+        		 document.getElementById('check').innerHTML = '비밀번호가 일치합니다.'
+                 document.getElementById('check').style.color ='blue';
+        		 
+             } else {
+                 // 비밀번호 불일치
+            	 document.getElementById('check').innerHTML = '비밀번호가 일치하지 않습니다.';
+                 document.getElementById('check').style.color = 'red';
+                 
              }
          }
      }
@@ -115,8 +119,8 @@
 													<span>이름</span>
 												</div>
 												<div class="col-12">
-											<input type="text" class="form-control form-control-user"
-														id="name" name="name" placeholder="이 름" required="required" >
+													<input type="text" class="form-control form-control-user"
+																id="name" name="name" placeholder="이 름" required="required" >
 												</div>
 											</div>
 										</div>
@@ -171,11 +175,12 @@
 										</div>
 										<!-- 학과명, 직책 설정 종료 -->	
 										<div class="form-group row">
-												<input type="submit" value="회원가입" class="btn btn-primary btn-sm">
+											<input type="submit" value="회원가입" class="btn btn-primary btn-sm">
 						
 										</div>	
-										</form>
-								</div> <!-- <div class="p-5"> 50번 종료 부분-->
+									</form>
+								</div> 
+								<!-- <div class="p-5"> 50번 종료 부분-->
 								<br/>
 								
 							</div>
